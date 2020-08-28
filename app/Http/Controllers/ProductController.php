@@ -161,6 +161,7 @@ class ProductController extends Controller
             $data['product_description'] = $request->product_description;
         }
 
+        // Add product translation
         ProductTranslations::where('product_id', $oldProduct->id)
             ->where('language_id', $language->id)
             ->update($data);
