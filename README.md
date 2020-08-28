@@ -35,6 +35,6 @@ By default the language will be en-gb if you don't specify any headers
 
 Please also set the following headers when making any request using Postman
 
-Content-Type: application/json
-Accept: application/json
+- Content-Type: application/json
+- Accept: application/json
 
