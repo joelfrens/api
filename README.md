@@ -17,7 +17,7 @@ The project needs a .env and .env.testing file. I have added a .env.example and 
 ### Run migrations
 
 Create two databases on your mysql setup. Laravel uses a separate database to run the test. ex. demo and demo_test
-Make changes in you .env file and .env.testing file to change the db name, usernmae and passwod
+Make changes in you .env file and .env.testing file to change the db name, username and password
 
 ``` php artisan migrate ```
 
