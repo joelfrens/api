@@ -4,6 +4,8 @@ This is a Laravel 7 installation and I used MAMP with PHP 7.4
 
 ### Clone the repository 
 
+``` git clone git@github.com:joelfrens/api.git ```
+
 ### Create env files
 
 The project needs a .env and .env.testing file. I have added a .env.example and .env.testing.example files. Please change the database settings to match your local setup
