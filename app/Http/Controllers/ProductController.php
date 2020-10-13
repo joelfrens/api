@@ -40,25 +40,17 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {   
         $locale = App::getLocale();
 
-        // Check POST data
-        $checkRequest = $this->checkRequest($request);
-
-        $errors = $checkRequest['errors'];
-
-        // If some inputs are missing send a bad request response
-        if ($errors) {
-            return response()->json(
-				[
-					'data' => $checkRequest
-				],
-				Response::HTTP_BAD_REQUEST
-			);
-        }
-
+        return response()->json(
+            [
+                'data' => $checkRequest
+            ],
+            Response::HTTP_BAD_REQUEST
+        );
+        
         $productData = [
             'product_price' => $request->product_price,
             'category_id' => 1
@@ -209,35 +201,5 @@ class ProductController extends Controller
                         ->first();
 
         return $productData;
-    }
-
-    /**
-     * Checks for a valid POST/PATCH request
-     * 
-     * @param  \Illuminate\Http\Request  $request
-     * @return Array $result
-     */
-    private function checkRequest($request)
-    {   
-        $errors = false;
-        $message = [];
-        $result = [];
-        if (!isset($request->product_price) || trim($request->product_price) == '') {
-            $errors = true;
-            $message[] = 'Please provide the product price';
-        }
-        if (!isset($request->product_name) || trim($request->product_name) == '') {
-            $errors = true;
-            $message[] = 'Please provide the product name';
-        }
-        if (!isset($request->product_description) || trim($request->product_description) == '') {
-            $errors = true;
-            $message[] = 'Please provide the product description';
-        }
-
-        $result["errors"] = $errors;
-        $result["message"] = $message;
-
-        return $result;
     }
 }
