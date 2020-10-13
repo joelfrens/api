@@ -210,13 +210,15 @@ class ProductsTest extends TestCase
                 'product_price' => $data['product_price']
             ]
         ]);
+
+        $productId = $response["data"]["product_id"];
         
         // Translation available
         $response = $this->withHeaders([
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
             'X-localization' => 'fr-ch'
-        ])->get('/api/products/'.$response["data"]["product_id"]);
+        ])->get('/api/products/'.$productId);
 
         $response->assertStatus(200)->assertJson([
             'data' => [
@@ -231,7 +233,7 @@ class ProductsTest extends TestCase
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
             'X-localization' => 'en-gb'
-        ])->get('/api/products/'.$response["data"]["product_id"]);
+        ])->get('/api/products/'.$productId);
 
         $response->assertStatus(404);
         $response->assertExactJson([
