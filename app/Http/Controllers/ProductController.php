@@ -23,14 +23,12 @@ class ProductController extends Controller
     public function index()
     {   
         $locale = App::getLocale();
-        $products = DB::table('products')
-                    ->join('product_translations', 'products.id', '=', 'product_translations.product_id')
-                    ->join('categories', 'products.category_id', '=', 'categories.id')
-                    ->join('languages', 'product_translations.language_id', '=', 'languages.id')
-                    ->select('products.product_price', 'products.category_id', 'product_translations.product_name', 
-                    'product_translations.product_description', 'categories.category_name', 'categories.id')
-                    ->where('languages.language_code', $locale)
-                    ->get();
+
+        $products = Product::with('translations')
+                    ->whereHas('translations', function($query) {
+                        $query->where('language_id', '=', 1);
+                    })->get();
+
         return ProductCollection::collection($products);
     }
 

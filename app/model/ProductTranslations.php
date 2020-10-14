@@ -14,4 +14,13 @@ class ProductTranslations extends Model
      */
     protected $fillable = ['product_name', 'product_description', 'product_id', 'language_id'];
 
+    public function product()
+    {
+        return $this->belongsTo('App\model\Product');
+    }
+
+    public function language()
+    {
+        return $this->hasOne('App\model\Language');
+    }
 }
