@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/joelfrens/api.svg?branch=master)](https://travis-ci.com/joelfrens/api)
+
 ## Setup instructions
 
 This is a Laravel 7 installation and I used MAMP with PHP 7.4
