@@ -9,11 +9,12 @@ services:
 
 before_script:
 - cp .env.travis .env
-- mysql -e 'create database laravel_test;'
+- mysql -e 'create database laravel;'
 - composer self-update
 - composer install --no-interaction
 - php artisan key:generate
 - php artisan migrate
+- mysql -e 'create database laravel_test;'
 
 script:
 - vendor/bin/phpunit
