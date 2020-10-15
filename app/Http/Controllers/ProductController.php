@@ -41,13 +41,6 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {   
         $locale = App::getLocale();
-
-        return response()->json(
-            [
-                'data' => $checkRequest
-            ],
-            Response::HTTP_BAD_REQUEST
-        );
         
         $productData = [
             'product_price' => $request->product_price,

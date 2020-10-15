@@ -19,6 +19,7 @@ class ProductsTest extends TestCase
 
         // seed the database
         $this->artisan('db:seed');
+        //exit;
     }
 
     /**
@@ -185,7 +186,7 @@ class ProductsTest extends TestCase
         ])
         ->json('POST', '/api/products', $data);
 
-        $response->assertStatus(400);
+        $response->assertStatus(422);
     }
 
     /**
