@@ -23,6 +23,9 @@ class Product extends Model
         return $this->belongsTo('App\model\Category');
     }
 
+    /**
+     * Product Translations
+     */
     public function translations()
     {
         return $this->hasOne('App\model\ProductTranslations');
