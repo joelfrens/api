@@ -10,8 +10,6 @@ addons:
 before_script:
 - cp .env.travis .env
 - sudo mysql -e 'create database laravel_test;'
-- sudo mysql -u root -e 'GRANT ALL ON *.* TO `travis`;'
-- sudo mysql -u root -e 'FLUSH PRIVILEGES;'
 - composer self-update
 - composer install --no-interaction
 - php artisan key:generate
