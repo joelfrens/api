@@ -1,11 +1,11 @@
 language: php
-dist: precise
+dist: bionic
 
 php:
 - 7.4
 
-services:
-  - mysql
+addons:
+  mariadb: 10.4
 
 before_script:
 - cp .env.travis .env
