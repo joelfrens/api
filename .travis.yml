@@ -2,9 +2,7 @@ language: php
 jobs:
   include:
     - php: 7.4
-      dist: precise
-    - php: 7.2
-      dist: precise
+      dist: xenial
 
 addons:
   mariadb: 10.4
